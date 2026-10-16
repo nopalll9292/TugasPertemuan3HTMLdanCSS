@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pendaftaran Peserta</title>
+
+    <!-- ===== CSS INTERNAL ===== -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8ff;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        h1 {
+            color: #1a56b0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1a56b0;
+            border-bottom: 2px solid #1a56b0;
+            padding-bottom: 4px;
+        }
+
+        form {
+            background: white;
+            border: 1px solid #ccd;
+            padding: 15px;
+            line-height: 2;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            padding: 5px;
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background: #1a56b0;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+        }
+
+        caption {
+            font-weight: bold;
+            padding: 8px;
+        }
+
+        th {
+            background: #1a56b0;
+            color: white;
+            padding: 8px;
+        }
+
+        td {
+            border: 1px solid #ccd;
+            padding: 8px;
+        }
+
+        /* CLASS: baris yang disorot / baris total */
+        .aktif {
+            background: #e6eefb;
+            font-weight: bold;
+        }
+
+        /* CLASS: rata tengah */
+        .tengah {
+            text-align: center;
+        }
+
+        /* CLASS: tanda kolom wajib diisi */
+        .wajib {
+            color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Pendaftaran Peserta</h1>
+
+    <!-- ===== BAGIAN 1: FORM PENDAFTARAN ===== -->
+    <h2>Formulir Pendaftaran</h2>
+    <form action="proses.php" method="post">
+
+        <!-- 1. Input text -->
+        Nama Lengkap <span class="wajib">*</span>:
+        <input type="text" name="nama" required><br>
+
+        <!-- 2. Input email -->
+        Email <span class="wajib">*</span>:
+        <input type="email" name="email" required><br>
+
+        <!-- 3. Input telepon -->
+        No. HP:
+        <input type="tel" name="hp"><br>
+
+        <!-- 4. Input tanggal -->
+        Tanggal Lahir:
+        <input type="date" name="tgl_lahir"><br>
+
+        <!-- 5. Radio button (pilih satu) -->
+        Jenis Kelamin:
+        <input type="radio" name="jk" value="L"> Laki-laki
+        <input type="radio" name="jk" value="P"> Perempuan<br>
+
+        <!-- 6. Select / dropdown -->
+        Kegiatan yang Diikuti:
+        <select name="kegiatan">
+            <option>Workshop Web</option>
+            <option>Seminar Teknologi</option>
+            <option>Lomba Coding</option>
+        </select><br>
+
+        <!-- 7. Checkbox (pilih lebih dari satu) -->
+        Sesi yang Dipilih:
+        <input type="checkbox" name="sesi[]" value="pagi"> Pagi
+        <input type="checkbox" name="sesi[]" value="siang"> Siang
+        <input type="checkbox" name="sesi[]" value="sore"> Sore<br>
+
+        <!-- 8. Textarea -->
+        Alasan Mengikuti:<br>
+        <textarea name="alasan" rows="3" cols="40"></textarea><br>
+
+        <button type="submit">Daftar</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <!-- ===== BAGIAN 2: TABEL ===== -->
+    <h2>Daftar Peserta Terdaftar</h2>
+    <table>
+        <caption>Data 4 Peserta</caption>
+
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kegiatan</th>
+                <th>Biaya (Rp)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="tengah">1</td>
+                <td>Budi Santoso</td>
+                <td>Workshop Web</td>
+                <td class="tengah">50.000</td>
+            </tr>
+            <tr>
+                <td class="tengah">2</td>
+                <td>Sari Wulandari</td>
+                <td>Seminar Teknologi</td>
+                <td class="tengah">30.000</td>
+            </tr>
+            <tr>
+                <td class="tengah">3</td>
+                <td>Andi Prasetyo</td>
+                <td>Lomba Coding</td>
+                <td class="tengah">75.000</td>
+            </tr>
+            <tr>
+                <td class="tengah">4</td>
+                <td>Dewi Lestari</td>
+                <td>Workshop Web</td>
+                <td class="tengah">50.000</td>
+            </tr>
+        </tbody>
+
+        <!-- colspan="3" menggabungkan 3 kolom -->
+        <tfoot>
+            <tr class="aktif">
+                <td colspan="3">Total Biaya</td>
+                <td class="tengah">205.000</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
